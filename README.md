@@ -43,44 +43,7 @@ Store and retrieve configuration values (feature flags, connection strings, envi
 └──────────────────────────────────────────────────────────┘
 ```
 
-### Project Structure
 
-```
-edge-config-service/
-├── package.json               # Root workspace config
-├── .gitignore
-├── README.md
-│
-├── worker/                    # Cloudflare Worker
-│   ├── wrangler.toml          # Wrangler config (KV bindings, envs)
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── src/
-│       ├── index.ts           # Entry point — fetch handler + CORS
-│       ├── router.ts          # URL/method dispatch
-│       ├── types.ts           # Env, ConfigEntry, ApiResponse types
-│       ├── handlers/
-│       │   └── config.ts      # GET, POST, DELETE, LIST handlers
-│       ├── middleware/
-│       │   └── auth.ts        # Bearer token authentication
-│       └── utils/
-│           ├── response.ts    # ok(), err(), notFound() helpers
-│           ├── validation.ts  # Key/value input validation
-│           └── logger.ts      # Structured JSON logger
-│
-└── cli/                       # Node.js CLI Tool
-    ├── .env.example           # Environment variable template
-    ├── package.json
-    ├── tsconfig.json
-    └── src/
-        ├── index.ts           # CLI entry point (Commander setup)
-        ├── commands/
-        │   └── config.ts      # set/get/delete/list commands
-        └── utils/
-            ├── api.ts         # Typed HTTP client for the Worker API
-            ├── output.ts      # Chalk-coloured terminal output
-            └── config.ts      # .env loader + config validation
-```
 
 ---
 
@@ -98,7 +61,7 @@ edge-config-service/
 ### 1. Clone and install dependencies
 
 ```bash
-git clone https://github.com/your-org/edge-config-service.git
+git clone https://github.com/Atharva1701/edge-config-service.git
 cd edge-config-service
 
 # Install worker deps
@@ -345,8 +308,8 @@ Create or update a config key.
   "data": {
     "key": "DATABASE_URL",
     "value": "postgres://localhost/mydb",
-    "createdAt": "2024-01-15T10:30:00.000Z",
-    "updatedAt": "2024-01-15T10:30:00.000Z"
+    "createdAt": "2026-01-15T10:30:00.000Z",
+    "updatedAt": "2026-01-15T10:30:00.000Z"
   }
 }
 ```
@@ -364,8 +327,8 @@ Retrieve a single config value.
   "data": {
     "key": "DATABASE_URL",
     "value": "postgres://localhost/mydb",
-    "createdAt": "2024-01-15T10:30:00.000Z",
-    "updatedAt": "2024-01-15T10:30:00.000Z"
+    "createdAt": "2026-01-15T10:30:00.000Z",
+    "updatedAt": "2026-01-15T10:30:00.000Z"
   }
 }
 ```
