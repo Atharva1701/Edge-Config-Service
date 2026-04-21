@@ -1,0 +1,17 @@
+# 1. Install deps
+cd worker && npm install
+cd ../cli && npm install
+
+# 2. Create KV namespaces and paste IDs into wrangler.toml
+wrangler kv:namespace create "CONFIG_KV"
+
+# 3. Set API token secret
+wrangler secret put API_TOKEN
+
+# 4. Start worker locally
+cd worker && npm run dev
+
+# 5. Configure CLI
+cd cli && cp .env.example .env  # fill in URL + token
+npm run dev -- config set MY_KEY <"set any key here without the square brackets">  #eg. "HELLO"
+npm run dev -- config list
