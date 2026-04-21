@@ -444,9 +444,3 @@ wrangler deploy
 # Production
 wrangler deploy --env production
 ```
-
----
-
-## License
-
-MIT
