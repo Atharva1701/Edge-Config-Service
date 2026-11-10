@@ -1,0 +1,81 @@
+diff --git a/auth.ts b/auth.ts
+index 1111111..2222222 100644
+--- a/auth.ts
++++ b/auth.ts
+@@ -1,7 +1,7 @@
+-import type { Env } from "../types";
+-import { unauthorized } from "../utils/response";
+-import { logger } from "../utils/logger";
++import type { Env } from "./types";
++import { unauthorized } from "./response";
++import { logger } from "./logger";
+diff --git a/config.ts b/config.ts
+index 1111111..2222222 100644
+--- a/config.ts
++++ b/config.ts
+@@ -1,7 +1,7 @@
+-import type { Env, ConfigEntry } from "../types";
+-import { ok, err, notFound, noContent, serverError } from "../utils/response";
+-import { validateKey, validateConfigBody } from "../utils/validation";
+-import { logger } from "../utils/logger";
++import type { Env, ConfigEntry } from "./types";
++import { ok, err, notFound, noContent, serverError } from "./response";
++import { validateKey, validateConfigBody } from "./validation";
++import { logger } from "./logger";
+diff --git a/response.ts b/response.ts
+index 1111111..2222222 100644
+--- a/response.ts
++++ b/response.ts
+@@ -1,4 +1,4 @@
+-import type { ApiResponse } from "../types";
++import type { ApiResponse } from "./types";
+diff --git a/router.ts b/router.ts
+index 1111111..2222222 100644
+--- a/router.ts
++++ b/router.ts
+@@ -1,13 +1,13 @@
+ import type { Env } from "./types";
+-import { authenticate } from "./middleware/auth";
++import { authenticate } from "./auth";
+ import {
+   handleGetConfig,
+   handleListConfigs,
+   handleSetConfig,
+   handleDeleteConfig,
+-} from "./handlers/config";
+-import { err, notFound } from "./utils/response";
+-import { logger } from "./utils/logger";
++} from "./config";
++import { err, notFound } from "./response";
++import { logger } from "./logger";
+diff --git a/package.json b/package.json
+index 1111111..2222222 100644
+--- a/package.json
++++ b/package.json
+@@ -2,7 +2,7 @@
+   "name": "edge-config-worker",
+   "version": "1.0.0",
+   "description": "Edge Config Service - Cloudflare Worker",
+-  "main": "src/index.ts",
++  "main": "index.ts",
+diff --git a/wrangler.toml b/wrangler.toml
+index 1111111..2222222 100644
+--- a/wrangler.toml
++++ b/wrangler.toml
+@@ -1,6 +1,6 @@
+ name = "edge-config-worker"
+-main = "src/index.ts"
++main = "index.ts"
+ compatibility_date = "2024-01-01"
+ compatibility_flags = ["nodejs_compat"]
+diff --git a/tsconfig.json b/tsconfig.json
+index 1111111..2222222 100644
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -10,7 +10,7 @@
+     "skipLibCheck": true
+   },
+-  "include": ["src/**/*.ts"],
++  "include": ["index.ts", "router.ts", "auth.ts", "config.ts", "response.ts", "validation.ts", "logger.ts", "types.ts"],
+   "exclude": ["node_modules"]
+ }

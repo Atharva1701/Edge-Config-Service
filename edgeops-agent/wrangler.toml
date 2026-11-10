@@ -1,0 +1,25 @@
+name = "edgeops-agent"
+main = "src/server.ts"
+compatibility_date = "2026-11-10"
+compatibility_flags = ["nodejs_compat"]
+
+[ai]
+binding = "AI"
+
+[vars]
+ENVIRONMENT = "development"
+# Change this to the URL of the existing Edge Config Service.
+CONFIG_API_URL = "http://127.0.0.1:8788"
+
+[assets]
+directory = "./web/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[durable_objects.bindings]]
+name = "EdgeOpsAgent"
+class_name = "EdgeOpsAgent"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["EdgeOpsAgent"]
