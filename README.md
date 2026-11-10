@@ -444,3 +444,21 @@ wrangler deploy
 # Production
 wrangler deploy --env production
 ```
+
+## EdgeOps Agent (AI Extension)
+
+An AI-powered extension to the Edge Config Service that enables developers to inspect and manage edge configurations through natural-language interaction.
+
+The extension uses Cloudflare Workers AI with Llama 3.3, the Cloudflare Agents SDK, Durable Objects, and a React-based chat interface.
+
+**Key capabilities:**
+- Natural-language configuration inspection.
+- Configuration change proposals generated through AI.
+- Deterministic validation before configuration updates.
+- Human-in-the-loop approval before applying changes.
+- Persistent agent conversation state.
+- Stale configuration detection to prevent outdated updates.
+
+The extension is maintained separately under [`edgeops-agent/`](./edgeops-agent/).
+
+See the [EdgeOps Agent README](./edgeops-agent/README.md) for architecture and setup instructions.
