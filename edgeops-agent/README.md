@@ -144,11 +144,11 @@ The existing service's `POST /config` accepts `{ "key": string, "value": string 
 
 ## Tests and verification
 
-The ZIP is an implementation scaffold based on the source files supplied. Dependencies were not installed and no live Cloudflare account or config Worker was available in this environment, so a full `wrangler dev`, type-check, or end-to-end deployment test has **not** been run. After `npm install`, run:
+After `npm install`, run:
 
 ```bash
 npm run type-check
 npm run build
 ```
 
-Then test read-only operations against a non-production config service before enabling any production write path.
+Test read-only operations against a non-production config service before enabling any production write path.
